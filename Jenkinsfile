@@ -29,22 +29,21 @@ pipeline {
 
     stage('Install & Test') {
       steps {
-        dir('app') { // <-- run npm commands in app folder
+        dir('app') { // npm commands run in app folder
           script {
             echo "Installing dependencies and running tests"
+            sh 'npm install'
+            sh 'mkdir -p test-results'
+            sh 'npm test || true' // continue even if tests fail
           }
-          sh 'npm install'
-          sh 'mkdir -p test-results'
-          sh 'npm test || true' // continue pipeline even if tests fail
         }
       }
     }
 
     stage('Build Image') {
       steps {
-          script {
-            echo "Building Docker image ${IMAGE_NAME}:${TAG}"
-          }
+        script {
+          echo "Building Docker image ${IMAGE_NAME}:${TAG}"
           sh "docker build -t ${IMAGE_NAME}:${TAG} ."
         }
       }
