@@ -44,7 +44,9 @@ pipeline {
       steps {
         script {
           echo "Building Docker image ${IMAGE_NAME}:${TAG}"
-          sh "docker build -t ${IMAGE_NAME}:${TAG} ."
+          dir("${env.WORKSPACE}") {
+            sh "docker build -t ${IMAGE_NAME}:${TAG} ."
+          }
         }
       }
     }
