@@ -97,7 +97,7 @@ pipeline {
         }
       }
     }
-  } // stages
+  } // stage
 
   post {
     always {
