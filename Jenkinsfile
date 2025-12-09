@@ -21,7 +21,7 @@ pipeline {
         script {
           // Make branch/tag safe for later use
           env.BRANCH_SAFE = env.BRANCH_NAME ?: 'local'
-          env.TAG = env.BRANCH_SAFE.replaceAll('[^a-zA-Z0-9_-./]', '_')
+          env.TAG = env.BRANCH_SAFE.replaceAll('[^a-zA-Z0-9_.-]', '_')
           echo "Branch: ${env.BRANCH_SAFE}, TAG: ${env.TAG}"
         }
       }
