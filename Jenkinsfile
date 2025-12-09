@@ -30,7 +30,7 @@ pipeline {
         script {
           echo "Ensure node/npm present on agent and tests produce JUnit XML into test-results/"
         }
-        sh 'npm ci'
+        sh 'npm install'
         sh 'npm test'
       }
     }
