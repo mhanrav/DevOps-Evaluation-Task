@@ -42,7 +42,6 @@ pipeline {
 
     stage('Build Image') {
       steps {
-        dir('app') { // <-- build Docker image from app folder
           script {
             echo "Building Docker image ${IMAGE_NAME}:${TAG}"
           }
