@@ -6,7 +6,7 @@ pipeline {
   }
 
   tools {
-    nodejs 'NodeJS 20' // Make sure this matches your NodeJS installation in Jenkins
+    nodejs 'NodeJS_20' // Make sure this matches your NodeJS installation in Jenkins
   }
 
   stages {
